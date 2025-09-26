@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anime World India</title>
+    <link rel="icon" href="https://anime-world.app/favicon.png" sizes="32x32">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #181834;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            max-width: 500px;
+            padding: 2rem;
+        }
+
+        h1 {
+            color: #fff;
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+        }
+
+        .bookmark-text {
+            color: #75f3fe;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: #75f3fe;
+            border-radius: 6px;
+            color: #181834;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(117, 243, 254, 0.3);
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(117, 243, 254, 0.4);
+        }
+
+        .floating-dots {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .dot {
+            position: absolute;
+            background-color: #75f3fe;
+            border-radius: 50%;
+            opacity: 0.2;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.2;
+            }
+            100% {
+                transform: translateY(-100px) translateX(50px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-dots" id="dots"></div>
+    <div class="container">
+        <h1>89Flex</h1>
+        <p class="bookmark-text"> Bookmark this page for easy anime watch your favorite anime site </p>
+        <a class="button" id="homeButton">Go to Homepage</a>
+    </div>
+
+    <script>
+        // Create minimal floating dots
+        const dotsContainer = document.getElementById('dots');
+        for (let i = 0; i < 12; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            
+            // Random size between 4 and 10px
+            const size = Math.random() * 6 + 4;
+            dot.style.width = `${size}px`;
+            dot.style.height = `${size}px`;
+            
+            // Random position
+            dot.style.left = `${Math.random() * 100}%`;
+            dot.style.bottom = `-${size}px`;
+            
+            // Random animation duration and delay
+            dot.style.animationDuration = `${Math.random() * 15 + 10}s`;
+            dot.style.animationDelay = `${Math.random() * 5}s`;
+            
+            dotsContainer.appendChild(dot);
+        }
+
+        // Button redirect functionality
+        document.getElementById('homeButton').addEventListener('click', function() {
+            window.location.href = 'https://watchanimeworld.in';
+        });
+    </script>
+</body>
+</html>
